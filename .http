@@ -1,0 +1,3 @@
+@baseUrl = https://api-pasedelista.onrender.com/api
+
+GET {{baseUrl}}/grupos?apikey=02945d48-ec75-43ed-b0b8-1eec056446aa

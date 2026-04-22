@@ -1,0 +1,188 @@
+<div class="container">
+  <h1 mat-dialog-title>Agregar nuevo</h1>
+
+  <form [formGroup]="formGroup" (ngSubmit)="guardar()">
+    <mat-dialog-content>
+      <mat-form-field>
+        <mat-label>Nombre de la materia</mat-label>
+        <input matInput placeholder="Programación" formControlName="materia"/>
+      </mat-form-field>
+
+      <br />
+      <mat-form-field>
+        <mat-label>Fecha de inicio</mat-label>
+        <input placeholder="inicio" matInput [matDatepicker]="fechaDeInicio" formControlName="fechaInicio"/>
+        <mat-datepicker #fechaDeInicio />
+        <mat-datepicker-toggle [for]="fechaDeInicio" matSuffix />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Fecha de finalización</mat-label>
+        <input placeholder="fin" matInput [matDatepicker]="datepicker" formControlName="fechaFin"/>
+        <mat-datepicker #datepicker />
+        <mat-datepicker-toggle [for]="datepicker" matSuffix />
+      </mat-form-field>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Lunes</th>
+            <th>Martes</th>
+            <th>Miercoles</th>
+            <th>Jueves</th>
+            <th>Viernes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <mat-form-field>
+                <mat-label>Hora de entrada</mat-label>
+                <input matInput [matTimepicker]="horaDeEntradaLunes" formControlName="horaDeEntrada1" placeholder="Hora de entrada" />
+                <mat-timepicker-toggle matIconSuffix [for]="horaDeEntradaLunes" />
+                <mat-timepicker #horaDeEntradaLunes />
+              </mat-form-field>
+              <br />
+              <mat-form-field>
+                <mat-label>Hora de salida</mat-label>
+                <input matInput [matTimepicker]="horaDeSalidaLunes" placeholder="Hora de salida" formControlName="horaDeSalida1"/>
+                <mat-timepicker-toggle matIconSuffix [for]="horaDeSalidaLunes" />
+                <mat-timepicker #horaDeSalidaLunes />
+              </mat-form-field>
+            </td>
+
+            <td>
+              <mat-form-field>
+                <mat-label>Hora de entrada</mat-label>
+                <input matInput [matTimepicker]="horaDeEntradaMartes" formControlName="horaDeEntrada2" placeholder="Hora de entrada"/>
+                <mat-timepicker-toggle matIconSuffix [for]="horaDeEntradaMartes" />
+                <mat-timepicker #horaDeEntradaMartes />
+              </mat-form-field>
+              <br />
+              <mat-form-field>
+                <mat-label>Hora de salida</mat-label>
+                <input matInput [matTimepicker]="horaDeSalidaMartes" formControlName="horaDeEntrada2" placeholder="Hora de entrada"/>
+                <mat-timepicker-toggle matIconSuffix [for]="horaDeSalidaMartes" />
+                <mat-timepicker #horaDeSalidaMartes />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field>
+                <mat-label>Hora de entrada</mat-label>
+                <input matInput [matTimepicker]="horaDeEntradaMiercoles" formControlName="horaDeEntrada3" placeholder="Hora de entrada"/>
+                <mat-timepicker-toggle matIconSuffix [for]="horaDeEntradaMiercoles" />
+                <mat-timepicker #horaDeEntradaMiercoles />
+              </mat-form-field>
+              <br />
+              <mat-form-field>
+                <mat-label>Hora de salida</mat-label>
+                <input matInput [matTimepicker]="horaDeSalidaMiercoles"  formControlName="horaDeSalida3" placeholder="Hora de salida"/>
+                <mat-timepicker-toggle matIconSuffix [for]="horaDeSalidaMiercoles" />
+                <mat-timepicker #horaDeSalidaMiercoles />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field>
+                <mat-label>Hora de entrada</mat-label>
+                <input matInput [matTimepicker]="horaDeEntradaJueves" formControlName="horaDeEntrada4" placeholder="Hora de entrada"/>
+                <mat-timepicker-toggle matIconSuffix [for]="horaDeEntradaJueves" />
+                <mat-timepicker #horaDeEntradaJueves />
+              </mat-form-field>
+              <br />
+              <mat-form-field>
+                <mat-label>Hora de salida</mat-label>
+                <input matInput [matTimepicker]="horaDeSalidaJueves" formControlName="horaDeSalida4" placeholder="Hora de salida"/>
+                <mat-timepicker-toggle matIconSuffix [for]="horaDeSalidaJueves" />
+                <mat-timepicker #horaDeSalidaJueves />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field>
+                <mat-label>Hora de entrada</mat-label>
+                <input matInput [matTimepicker]="horaDeEntradaViernes" formControlName="horaDeEntrada5" placeholder="Hora de entrada"/>
+                <mat-timepicker-toggle matIconSuffix [for]="horaDeEntradaViernes" />
+                <mat-timepicker #horaDeEntradaViernes />
+              </mat-form-field>
+              <br />
+              <mat-form-field>
+                <mat-label>Hora de salida</mat-label>
+                <input matInput [matTimepicker]="horaDeSalidaViernes" formControlName="horaDeSalida5" placeholder="Hora de salida"/>
+                <mat-timepicker-toggle matIconSuffix [for]="horaDeSalidaViernes" />
+                <mat-timepicker #horaDeSalidaViernes />
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <mat-form-field>
+                <mat-label>Retardo</mat-label>
+                <input matInput type="number" formControlName="retardo1" placeholder="10"/>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field>
+                <mat-label>Retardo</mat-label>
+                <input matInput type="number" formControlName="retardo2" placeholder="10"/>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field>
+                <mat-label>Retardo</mat-label>
+                <input matInput type="number" formControlName="retardo3" placeholder="10"/>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field>
+                <mat-label>Retardo</mat-label>
+                <input matInput type="number" formControlName="retardo4" placeholder="10"/>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field>
+                <mat-label>Retardo</mat-label>
+                <input matInput type="number" formControlName="retardo5" placeholder="10"/>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field>
+                <mat-label>Falta</mat-label>
+                <input matInput type="number" formControlName="corte1" placeholder="70"/>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field>
+                <mat-label>Falta</mat-label>
+                <input matInput type="number" formControlName="corte2" placeholder="70"/>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field>
+                <mat-label>Falta</mat-label>
+                <input matInput type="number" formControlName="corte3" placeholder="70"/>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field>
+                <mat-label>Falta</mat-label>
+                <input matInput type="number" formControlName="corte4" placeholder="70"/>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field>
+                <mat-label>Falta</mat-label>
+                <input matInput type="number" formControlName="corte5" placeholder="70"/>
+              </mat-form-field>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button matButton="filled" type="submit">Guardar</button>
+      <button matButton mat-dialog-close>Cancelar</button>
+    </mat-dialog-actions>
+  </form>
+</div>

@@ -1,0 +1,76 @@
+<h1>Lista de materias</h1>
+
+<div>
+  <button (click)="agregarMateria()" matButton="tonal">Agregar</button>
+  <br />
+
+  @if(estaCargando){
+    <mat-spinner></mat-spinner>
+    }
+  @for (materia of materias; track $index) {
+    <mat-card class="example-card mt-3" appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>{{ materia.materia }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Fecha de inicio: {{ materia.fechaInicio | date: 'dd/MM/yyyy' }}</p>
+        <p>Fecha de termino: {{ materia.fechaFin | date: 'dd/MM/yyyy' }}</p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Dias</th>
+              @for (horario of materia.horarios; track $index) {
+                <th>{{horario.dia}}</th>
+              }
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Horario</th>
+              @for (horario of materia.horarios; track $index) {
+                <td>
+                  {{horario.horaInicial}}
+                  {{horario.horaFinal}}
+                </td>
+              }
+            </tr>
+
+            <tr>
+              <th>Retardo</th>
+              @for (horario of materia.horarios; track $index) {
+                <td>
+                  @if(horario.horaInicial != ""){
+                    {{horario.horaInicial}} -
+                    {{agregarMinutos(horario.horaInicial, horario.tolerancia)}}
+                  }
+                </td>
+              }
+            </tr>
+            <tr>
+              <th>Falta</th>
+               @for (horario of materia.horarios; track $index) {
+                <td>
+                  @if(horario.horaInicial != ""){
+                    + {{agregarMinutos(horario.horaInicial, 60)}}
+                  }
+                </td>
+              }
+            </tr>
+          </tbody>
+        </table>
+      </mat-card-content>
+      <mat-card-footer class="example-card-footer">
+        <div class="container-fluid m-3">
+          <mat-chip-set aria-label="Chihuahua traits">
+            <button matButton="outlined">Editar</button>
+          </mat-chip-set>
+        </div>
+      </mat-card-footer>
+    </mat-card>
+  }
+
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+</div>
